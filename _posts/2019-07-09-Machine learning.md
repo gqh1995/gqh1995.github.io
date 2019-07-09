@@ -4,7 +4,7 @@ title:      Machine learning
 subtitle:   机器学习算法个人总结
 date:       2019-07-09
 author:     BY gqhoshino
-header-img: img/post-bg-cook.jpg
+header-img: img/01.jpg
 catalog: true
 tags:
     - 机器学习
