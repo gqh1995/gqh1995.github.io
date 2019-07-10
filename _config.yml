@@ -99,16 +99,16 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "WY",
-        href: "http://zhengwuyang.com"
+        title: "AGE",
+        href: "https://donghua.agefans.com/"
     },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
+        title: "简书·gqhoshino",
+        href: "https://www.jianshu.com/u/37bc6baf9bdf"
     },{
         title: "Apple",
         href: "https://apple.com"
     },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "CUG",
+        href: "http://graduate.cug.edu.cn/"
     }
 ]
