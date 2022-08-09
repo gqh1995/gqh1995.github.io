@@ -51,5 +51,24 @@ BART最终使用Text Infilling + Sentence permutation，其中Text Infilling起�
 * 解决机器翻译问题时，如上图右所示，由于翻译任务的词表可能和模型词表不同，所以这里使用一个新的小型encoder替换BART中的Embedding
 
 
-#### 待学习
+### UIE
 事件抽取的强baseline为ACL2022的UIE：[https://arxiv.org/abs/2203.12277]()，在最近的工作中已经验证了UIE的效果，处理较复杂的事件抽取任务，在少量数据的微调下，UIE可以得到较好的抽取效果。
+
+#### 简介
+* 统一建模不同的IE任务
+* 自适应地生成目标结构
+* 不同的知识来源统一学习通用的信息抽取能力
+
+#### 基本结构
+SSL+text---→SEL
+![img_4.png](img_4.png)
+
+#### 数据集
+* D_pair(text-to-structure)
+* D_record(None,None,SEL)
+* D_text(None,text`,text``)
+
+### 预训练
+* pair数据训练文本到结构的映射能力
+* SEL的生成能力
+* span corruption训练，语义信息的捕捉，类似BERT的MASK Language Model
