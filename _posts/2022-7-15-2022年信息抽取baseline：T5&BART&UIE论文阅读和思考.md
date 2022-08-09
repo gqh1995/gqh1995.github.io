@@ -20,7 +20,7 @@ tags:
 
 ### T5：Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer
 T5是“Text-to-Text Transfer Transformer”的简称，Transfer来自Transfer learning，文中提到NLP领域的预训练模型都涉及transfer learning的范畴，并经历了RNN到transformer的发展。
-![](https://img2022.cnblogs.com/blog/2158233/202206/2158233-20220617152134825-844753163.png)
+![img_1.png](img_1.png)
 作者提出了一个统一框架，试图将所有的NLP任务都转化为Text-to-text（文本到文本）任务。
 如图所示，比如英德翻译，只需将训练数据集的输入部分前加上“translate English to German（给我从英语翻译成德语）” 就行。假设需要翻译"That is good"，那么先转换成 "translate English to German：That is good." 输入模型，之后就可以直接输出德语翻译 “Das ist gut.”
 再比如情感分类任务，输入"sentiment：This movie is terrible!"，前面直接加上 “sentiment：”，然后就能输出结果“negative（负面）”。
@@ -37,7 +37,7 @@ T5是“Text-to-Text Transfer Transformer”的简称，Transfer来自Transfer l
 上文提到过，T5想要做一个统一的框架把分类任务和生成任务统一起来，所有任务都视为生成任务。（这里用T5实现问答来实践T5的fine-tuning方式）
 
 ### BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension
-![](https://img2022.cnblogs.com/blog/2158233/202206/2158233-20220617160553810-1650926932.png)
+![img_3.png](img_2.png)
 BART（Bidirectional and Auto-Regressive Transformers），即既考虑了双向的上下文信息，又具有自回归特性的transformers，与我们上文提到想解决的问题基本一致。
 
 #### Training
@@ -45,7 +45,7 @@ BART（Bidirectional and Auto-Regressive Transformers），即既考虑了双向
 BART最终使用Text Infilling + Sentence permutation，其中Text Infilling起到了最主要的作用，其实就是Span级别的mask，只不过这里允许span长度为0，span的长度服从泊松分布，lambda = 3，总共mask30%的字符。Sentence permutation提升不大，之所以使用是作者假设模型规模提升后这个任务会有用。
 
 #### Fine-tuning
-![](https://img2022.cnblogs.com/blog/2158233/202206/2158233-20220620145405353-203818772.png)
+![img_3.png](img_3.png)
 * 解决分类问题时，如上图左所示，将相同的输入送进encoder和decoder，使用decoder最后的隐层输出表示进入分类器做分类。（这里我的理解是，在做分类任务时，直接用预训练模型表示待分类的文本即可）
 * 解决序列生成任务时，如问答和摘要任务，encoder输入句子，decoder自回归式的生成回答。（原文中没有描述具体的fine-tuning操作，我认为需要新的小训练集对模型进行微调，再投入实际使用）
 * 解决机器翻译问题时，如上图右所示，由于翻译任务的词表可能和模型词表不同，所以这里使用一个新的小型encoder替换BART中的Embedding
