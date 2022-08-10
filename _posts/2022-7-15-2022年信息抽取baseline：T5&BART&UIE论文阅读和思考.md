@@ -66,7 +66,7 @@ SSL+text---→SEL
 #### 数据集
 * D_pair(text-to-structure)
 * D_record(None,None,SEL)
-* D_text(None,text`,text``)
+* D_text(None,text‘,text”)
 
 ### 预训练
 * pair数据训练文本到结构的映射能力
