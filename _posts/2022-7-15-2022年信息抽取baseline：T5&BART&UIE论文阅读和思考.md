@@ -68,7 +68,7 @@ SSL+text---→SEL
 * D_record(None,None,SEL)
 * D_text(None,text‘,text”)
 
-### 预训练
+#### 预训练
 * pair数据训练文本到结构的映射能力
 * SEL的生成能力
 * span corruption训练，语义信息的捕捉，类似BERT的MASK Language Model
